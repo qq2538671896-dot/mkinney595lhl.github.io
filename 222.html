@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>土木工程史 — 学习与导览</title>
+  <meta name="description" content="介绍土木工程发展史、代表性工程、重要人物与学习资源的教学型页面" />
+  <style>
+    /* 简洁样式 */
+    :root{
+      --bg:#f7fbff; --card:#ffffff; --text:#0b2447; --muted:#51627a; --accent:#1464f4;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    .wrap{max-width:1100px;margin:24px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#62a6ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;flex-shrink:0}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{color:var(--muted);margin-top:6px}
+
+    /* hero */
+    .hero{display:flex;gap:18px;margin-top:18px}
+    .hero .left{flex:1}
+    .hero .right{width:320px;flex-shrink:0}
+    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 6px 20px rgba(10,20,40,0.06)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+
+    /* timeline */
+    .timeline{margin-top:18px;display:grid;gap:12px}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start}
+    .timeline-year{min-width:90px;font-weight:700;color:var(--accent)}
+    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:14px}
+
+    /* features list */
+    ul.resource{padding-left:1rem;color:var(--muted)}
+    .thumb{width:100%;height:160px;border-radius:8px;object-fit:cover;background:#e9f0ff}
+
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:0.9rem;padding:14px 0}
+    @media (max-width:880px){
+      .hero{flex-direction:column}
+      .grid-2{grid-template-columns:1fr}
+      .hero .right{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">土木</div>
+      <div>
+        <h1>土木工程史 — 学习与导览</h1>
+        <p class="lead">从古代渡槽、拱桥到近代铁路与现代高楼，了解土木工程的发展脉络与代表性工程。</p >
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="简介">
+      <div class="left card">
+        <h2>页面简介</h2>
+        <p>本页面面向正在学习土木工程史的同学与教师：提供按时代划分的历史概览、代表工程示例、重要人物简介与自学任务。你可以把它作为课堂讲义或个人学习笔记的网页版本。</p >
+        <p style="margin-top:8px"><a class="btn" href="E:\人工智能导论作业\篇章\333.html">开始阅读历史时间线</a ></p >
+      </div>
+
+      <aside class="right card">
+        <h3>学习目标</h3>
+        <ul class="resource">
+          <li>理解土木工程主要技术演进的阶段。</li>
+          <li>能列举并解释若干代表性工程的设计与意义。</li>
+          <li>掌握继续深入研读的书籍与在线资源。</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="timeline">
+      <div class="card">
+        <h2>土木工程发展时间线（概览）</h2>
+
+        <div class="timeline-item">
+          <div class="timeline-year">古代（～公元500年）</div>
+          <div>
+            <strong>渡槽、道路与城墙</strong>
+            <p class="muted">古代文明建造的渡槽、堤坝、城墙与道路是土木工程的雏形。例如古罗马的渡槽系统将淡水引入城市，体现了水利与结构设计的结合。部分权威资料对罗马渡槽的结构与影响有较详尽论述。</p >
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">中世纪（500–1500）</div>
+          <div>
+            <strong>拱桥、城堡与水利维持</strong>
+            <p class="muted">在这一时期，石拱结构与城防工程得到延续与发展；许多传统技术通过匠人世代沿用与改良。</p >
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">近代（1500–1900）</div>
+          <div>
+            <strong>工业革命与材料革新</strong>
+            <p class="muted">以铁、钢和混凝土为代表的材料革新，配合蒸汽机与铁路的兴起，改变了大型桥梁、隧道与港口的建造方式。</p >
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">现代（1900–至今）</div>
+          <div>
+            <strong>高层建筑、混凝土与计算设计</strong>
+            <p class="muted">出现了高层结构、计算机辅助设计与预应力混凝土等，工程规模与复杂度大幅提升。</p >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Representative projects -->
+    <section class="grid-2">
+      <div class="card">
+        <h2>代表性工程（示例说明）</h2>
+
+        <article style="margin-top:10px">
+          <h3>古代：罗马渡槽（示例）</h3>
+          <img class="thumb" src="E:\人工智能导论作业\图片\罗马渡槽.jpg" alt="Roman aqueduct">
+          <p style="margin-top:8px;color:var(--muted)">罗马渡槽将水源通过渠道、隧道与桥梁引入城市，是古代水利与结构工程的典型代表。今天仍有许多保存良好的渡槽遗迹可作学习与研究的对象（如 Pont du Gard 等）。有关这些渡槽的历史与技术细节，可参考权威百科与历史文章。</p >
+        </article>
+
+        <article style="margin-top:12px">
+          <h3>近代：铁路与大桥</h3>
+          <img class="thumb" src="E:\人工智能导论作业\图片\铁路大桥.jpg" alt="Historic bridge">
+          <p style="margin-top:8px;color:var(--muted)">工业革命带来钢铁桥梁与铁路网，经典工程的建造过程与施工管理是土木工程史的重要内容。</p >
+        </article>
+
+        <article style="margin-top:12px">
+          <h3>现代：高层与大坝</h3>
+          <img class="thumb" src="E:\人工智能导论作业\图片\高大坝.jpg" alt="Modern structures">
+          <p style="margin-top:8px;color:var(--muted)">20 世纪后期以来，混凝土技术与计算分析推动出现摩天大楼、大跨径桥与大型水利工程。</p >
+        </article>
+      </div>
+
+     
+    </section>
+
+    
+
+    
+
+    <footer>
+      © <span id="yr"></span> 土木工程史学习页 · 制作：你的名字
+    </footer>
+  </div>
+
+  <script>
+    // 设置年份
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

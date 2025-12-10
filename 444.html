@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>土木工程历史时间线</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+:root{--bg:#f8fafc;--card:#fff;--accent:#0077b6;--muted:#6b7280}
+*{box-sizing:border-box}
+body{font-family:Inter, "PingFang SC", "Microsoft Yahei", sans-serif;margin:0;background:var(--bg);color:#0b1220}
+.header{padding:18px;background:linear-gradient(90deg,var(--accent),#00a7cc);color:#fff}
+.header .wrap{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:6px}
+.container{max-width:1100px;margin:18px auto;padding:0 16px}
+.controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.search{padding:10px 12px;border-radius:8px;border:1px solid #e2e8f0;background:white;min-width:200px}
+.select{padding:9px 12px;border-radius:8px;border:1px solid #e2e8f0;background:white}
+.timeline{position:relative;padding:20px 0}
+.line{position:absolute;left:50%;width:4px;background:linear-gradient(#dbeafe,#bfdbfe);top:0;bottom:0;transform:translateX(-50%)}
+.item{position:relative;width:50%;padding:18px 24px}
+.item-left{left:0;text-align:right;padding-right:40px}
+.item-right{left:50%;padding-left:40px}
+.item .card{display:inline-block;background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,30,0.06);max-width:520px}
+.item-time{font-size:13px;color:var(--muted);margin-bottom:6px}
+.dot{position:absolute;left:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);top:28px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,119,182,0.08)}
+.filter-tag{display:inline-block;padding:6px 8px;border-radius:999px;font-size:12px;background:#eef2ff;color:#0b3b64;margin-right:8px}
+@media (max-width:880px){
+  .item{width:100%}
+  .item-left,.item-right{left:0;padding:10px 14px;text-align:left}
+  .line{left:20px}
+  .dot{left:20px}
+}
+.modal{position:fixed;inset:0;background:rgba(8,12,20,0.5);display:none;align-items:center;justify-content:center;padding:20px}
+.modal .box{background:white;padding:18px;border-radius:10px;max-width:820px;width:100%;max-height:86vh;overflow:auto}
+.close-btn{float:right;background:#eee;border:none;padding:6px 10px;border-radius:8px;cursor:pointer}
+.empty{color:var(--muted);padding:30px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <div>
+      <div style="font-weight:700;font-size:18px">土木工程历史时间线</div>
+      
+    </div>
+    <nav><a href="E:\人工智能导论作业\篇章\111.html" style="color:white;text-decoration:none;background:rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px">首页</a ></nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="controls">
+    <input id="search" class="search" placeholder="" />
+    <select id="era" class="select">
+      
+      <option value="ancient">古代（-500）</option>
+      <option value="medieval">中世纪（500–1500）</option>
+      <option value="industrial">工业革命（1700s–1900s）</option>
+      <option value="modern">现代（1900s–至今）</option>
+      <option value="all">全部（古代至今）</option>
+    </select>
+    <button id="reset" class="select">重置筛选</button>
+  </section>
+
+  <section class="timeline" id="timeline">
+    <div class="line"></div>
+
+    <!-- 时间线项（示例：把下面的数据替换成你想要的事件） -->
+    <div class="item item-left" data-era="ancient" data-keywords="长城,防御,秦">
+      <div class="dot" title="古代：长城"></div>
+      <div class="card">
+        <div class="item-time">公元前7世纪 — 秦汉时期</div>
+        <div style="font-weight:700">长城与古代防御工程</div>
+        <div style="margin-top:8px;color:var(--muted)">筑墙、筑堤作为国防与边防工程的代表，体现了当时的大规模土木组织能力。</div>
+        <div style="margin-top:10px">
+          <span class="filter-tag">水利/城防</span>
+          <button onclick="openModal(this)" data-title="长城" data-img="images/greatwall.jpg" data-desc="长城是古代防御工程代表..." style="margin-left:8px">查看详情</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item item-right" data-era="medieval" data-keywords="拱桥,罗马,承重">
+      <div class="dot" title="中世纪：拱桥"></div>
+      <div class="card">
+        <div class="item-time">中世纪</div>
+        <div style="font-weight:700">拱桥与石工技艺的发展</div>
+        <div style="margin-top:8px;color:var(--muted)">拱桥技术传承与改进，承重结构的几何学应用日趋成熟。</div>
+        <div style="margin-top:10px">
+          <span class="filter-tag">桥梁</span>
+          <button onclick="openModal(this)" data-title="拱桥" data-img="images/arch_bridge.jpg" data-desc="拱桥使用压缩力完成跨越..." style="margin-left:8px">查看详情</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item item-left" data-era="industrial" data-keywords="铁路,钢桥,工程师">
+      <div class="dot" title="工业革命：铁路与钢结构"></div>
+      <div class="card">
+        <div class="item-time">18–19世纪</div>
+        <div style="font-weight:700">工业革命与钢铁、铁路工程</div>
+        <div style="margin-top:8px;color:var(--muted)">铁轨与钢结构的应用使得大跨度桥梁与现代轨道系统成为可能。</div>
+        <div style="margin-top:10px">
+          <span class="filter-tag">钢铁/铁路</span>
+          <button onclick="openModal(this)" data-title="钢桥与铁路" data-img="images/rail_bridge.jpg" data-desc="工业革命促进了材料与施工技术的进步..." style="margin-left:8px">查看详情</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item item-right" data-era="modern" data-keywords="高层建筑,预应力,隧道">
+      <div class="dot" title="现代：预应力与高层"></div>
+      <div class="card">
+        <div class="item-time">20–21世纪</div>
+        <div style="font-weight:700">现代施工技术与高层建筑</div>
+        <div style="margin-top:8px;color:var(--muted)">预应力混凝土、地铁隧道、数值模拟与BIM推动行业进入信息化时代。</div>
+        <div style="margin-top:10px">
+          <span class="filter-tag">高层/BIM</span>
+          <button onclick="openModal(this)" data-title="预应力与BIM" data-img="images/modern_building.jpg" data-desc="预应力混凝土与信息化设计改变施工流程..." style="margin-left:8px">查看详情</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 若无内容显示提示 -->
+    <div id="empty" class="empty" style="display:none">没有找到符合条件的事件。</div>
+  </section>
+</main>
+
+<!-- 事件详情模态 -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="box">
+    <button class="close-btn" onclick="closeModal()">关闭 ×</button>
+    <h3 id="modal-title" style="margin-top:8px">标题</h3>
+    < img id="modal-img" src="" alt="" style="width:100%;max-height:360px;object-fit:cover;border-radius:8px;margin-top:10px"/>
+    <p id="modal-desc" style="color:var(--muted);margin-top:10px"></p >
+    <p style="font-size:13px;color:var(--muted)">可在此处添加参考文献与外链：<a id="modal-link" href="#" target="_blank">参考资料</a ></p >
+  </div>
+</div>
+
+<script>
+// 数据驱动的简单筛选与搜索（可扩展为从 JSON 加载）
+const items = Array.from(document.querySelectorAll('.timeline .item'));
+const searchEl = document.getElementById('search');
+const eraEl = document.getElementById('era');
+const emptyEl = document.getElementById('empty');
+
+function normalize(s){ return (s||'').toString().toLowerCase(); }
+
+function applyFilter(){
+  const q = normalize(searchEl.value.trim());
+  const era = eraEl.value;
+  let shown = 0;
+  items.forEach(it=>{
+    const eraVal = it.dataset.era || 'all';
+    const kw = normalize(it.dataset.keywords || '') + ' ' + normalize(it.textContent);
+    const matchEra = (era==='all') || (eraVal===era);
+    const matchQ = q==='' || kw.indexOf(q) !== -1;
+    if(matchEra && matchQ){
+      it.style.display = '';
+      shown++;
+    } else {
+      it.style.display = 'none';
+    }
+  });
+  emptyEl.style.display = shown ? 'none' : '';
+}
+
+searchEl.addEventListener('input', applyFilter);
+eraEl.addEventListener('change', applyFilter);
+document.getElementById('reset').addEventListener('click', ()=>{
+  searchEl.value=''; eraEl.value='all'; applyFilter();
+});
+
+// modal
+function openModal(button){
+  const title = button.dataset.title || '详情';
+  const img = button.dataset.img || '';
+  const desc = button.dataset.desc || '';
+  document.getElementById('modal-title').textContent = title;
+  const mimg = document.getElementById('modal-img'); mimg.src = img; mimg.alt = title;
+  document.getElementById('modal-desc').textContent = desc;
+  document.getElementById('modal-link').href = '#';
+  const modal = document.getElementById('modal');
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
+}
+function closeModal(){
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+}
+document.getElementById('modal').addEventListener('click',(e)=>{
+  if(e.target===e.currentTarget) closeModal();
+});
+
+// 初始过滤运行一次（允许通过锚点定位时期）
+applyFilter();
+</script>
+</body>
+</html>
